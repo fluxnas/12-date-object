@@ -75,46 +75,10 @@ const tabMonth = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP",
 month.textContent = tabMonth[now.getMonth()]
 
 year.textContent = now.getFullYear()
-let nowhours 
+
 //right
-
-let clickEvent = true
-
-hours.addEventListener("click", () => {
-clickEvent =! clickEvent 
-// =! inverse donc la clickEvent est declarer true et passe en false same to :
-// if(clickEvent==true) {clickEvent=false}
-// else {clickEvent = true}
-console.log(clickEvent)
-
-})
-if(clickEvent){
-	let nowhours = now.getHours("en-US", {hour12: true})
-	hours.textContent = nowhours + " :"
-	console.log(nowhours)
-}
-
-
-// 	let checkHr =now.getHours();
-// 	if(checkHr<12){
-// 		nowhours = checkHr + " :"
-// 	}
-// 	else{
-// 		checkHr=checkHr-12;
-// 		nowhours = checkHr + " :"
-// 	}
-// 	hours.textContent = nowhours
-// 	console.log(checkHr)
-
-// }
-
-
-else{
-	nowhours = now.getHours() + " :"
-	hours.textContent = nowhours
-	console.log(nowhours)
-}
-
+let nowhours = now.getHours() + " :"
+hours.textContent = nowhours
 
 let nowmin = now.getMinutes() + " :"
 if (nowmin < 10) {
@@ -143,6 +107,13 @@ time++
 
 setInterval(refresh, 1000)
 
+
+
+hours.addEventListener("click", () => {
+	hours.textContent = new Date().getHours('en-US', {hour12: false }) 
+	console.log(new Date().getHours('en-US', {hour12: true }) )
+
+})
 
 
 
